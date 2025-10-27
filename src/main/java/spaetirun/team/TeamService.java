@@ -1,27 +1,27 @@
 package spaetirun.team;
 
-
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
-@RequiredArgsConstructor
 public class TeamService {
 
     @GetMapping("/teams")
-    String getAllTeams() {
-        return """
-                    <!DOCTYPE html>
-                    <html>
-                    <body>
-                    
-                    <h1>Hello World</h1>
-                    <p>Hier sollten alle teams stehem</p>
-                    
-                    </body>
-                    </html>
-                """;
+    public List<Team> getAllTeams() {
+        return List.of(
+                new Team("Team Alpha", "Berlin"),
+                new Team("Team Beta", "Hamburg")
+        );
     }
 
+    @Data
+    @AllArgsConstructor
+    static class Team {
+        private String name;
+        private String city;
+    }
 }
