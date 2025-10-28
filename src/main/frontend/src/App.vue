@@ -24,10 +24,24 @@ async function fetchData() {
     <button @click="fetchData">Fetch Data</button>
     <pre v-if="data">{{ data }}</pre>
   </div>
+
+  <form>
+    <p>Bestandene Aufgabe einreichen</p>
+    <select name="challenge" id="challenge">
+      <option value="exen">Getränk exen</option>
+      <option value="newDrink">Neues Getränk</option>
+      <option value="selfi">Selfi mit Spätibesitzer</option>
+      <option value="smoke">Zigarette geschnorrt</option>
+    </select>
+  </form>
 </template>
 
 <style scoped>
 button {
+  margin: 10px;
+}
+
+form {
   margin: 10px;
 }
 </style>
