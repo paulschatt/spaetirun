@@ -1,6 +1,6 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="newRun">
+    <h1>Hier kann man einen neuen Spätirun erstellen</h1>
   </div>
 </template>
 

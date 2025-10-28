@@ -1,47 +1,84 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
-const data = ref<string | null>(null)
-
-async function fetchData() {
-  try {
-    const response = await fetch("http://localhost:8080/teams")
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`)
-    }
-    const result = await response.json() // oder .text() falls kein JSON
-    data.value = JSON.stringify(result, null, 2)
-  } catch (error) {
-    console.error(error)
-    data.value = 'Fehler beim Laden der Daten.'
-  }
-}
+import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div>
-    <h1>Wer das liest ist doof</h1>
-    <button @click="fetchData">Fetch Data</button>
-    <pre v-if="data">{{ data }}</pre>
-  </div>
+  <header>
 
-  <form>
-    <p>Bestandene Aufgabe einreichen</p>
-    <select name="challenge" id="challenge">
-      <option value="exen">Getränk exen</option>
-      <option value="newDrink">Neues Getränk</option>
-      <option value="selfi">Selfi mit Spätibesitzer</option>
-      <option value="smoke">Zigarette geschnorrt</option>
-    </select>
-  </form>
+
+    <div class="wrapper">
+      <h1>Spätirun</h1>
+
+      <nav>
+        <RouterLink to="/">Einem Spätirun beitreten</RouterLink>
+        <RouterLink to="/erstellen">Neuen Spätirun erstellen</RouterLink>
+      </nav>
+    </div>
+  </header>
+
+  <RouterView />
 </template>
 
 <style scoped>
-button {
-  margin: 10px;
+header {
+  line-height: 1.5;
+  max-height: 100vh;
 }
 
-form {
-  margin: 10px;
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+nav a.router-link-exact-active {
+  color: var(--color-text);
+}
+
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
+}
+
+nav a:first-of-type {
+  border: 0;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    text-align: left;
+    margin-left: -1rem;
+    font-size: 1rem;
+
+    padding: 1rem 0;
+    margin-top: 1rem;
+  }
 }
 </style>
