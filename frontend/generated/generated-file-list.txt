@@ -1,0 +1,5 @@
+TeamService.ts
+spaetirun/team/TeamService/Team.ts
+connect-client.default.ts
+endpoints.ts
+spaetirun/team/TeamService/TeamModel.ts

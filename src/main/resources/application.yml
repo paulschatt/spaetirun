@@ -3,14 +3,18 @@ spring:
     url: jdbc:postgresql://localhost:5432/spaetirun
     username: spaetirun
     password: spaetirun
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
   application:
     name: spaetirun
+
 
 server:
   port: 8080

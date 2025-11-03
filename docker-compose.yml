@@ -1,28 +1,14 @@
-version: '3.9'
 services:
   postgres:
-    image: postgres:16
+    image: postgres:12.9
     container_name: postgres
     environment:
-      POSTGRES_USER: spaetirun
-      POSTGRES_PASSWORD: spaetirun
-      POSTGRES_DB: spaetirun
+      - POSTGRES_USER=spaetirun
+      - POSTGRES_PASSWORD=spaetirun
+      - POSTGRES_DB=spaetirun
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-
-  app:
-    build: .
-    container_name: spaetirun
-    ports:
-      - "8080:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/spaetirun
-      SPRING_DATASOURCE_USERNAME: spaetirun
-      SPRING_DATASOURCE_PASSWORD: spaetirun
-    depends_on:
-      - postgres
-
 volumes:
   postgres_data:
