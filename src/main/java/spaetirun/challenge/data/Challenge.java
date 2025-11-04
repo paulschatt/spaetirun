@@ -1,4 +1,4 @@
-package spaetirun.team.data;
+package spaetirun.challenge.data;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,11 +13,18 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Team {
+public class Challenge {
     @Id
     private UUID id;
 
     private String name;
+
+    private String description;
+
+    private int points;
+
+    //How often a challenge can be done
+    private int maxTimes;
 
     @ManyToOne
     private Spaetirun spaetirun;
