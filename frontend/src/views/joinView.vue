@@ -1,8 +1,18 @@
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const spaetirunID = ref<string>("")
+</script>
+
 <template>
   <div class="join">
-    <h1>Hier kann man einem Spätirun beitreten</h1>
+    <form>
+      <p>Hier kann man einem Spätirun beitreten</p>
+      <input v-model="spaetirunID" placeholder="Spätirun ID eingeben" />
+    </form>
   </div>
 </template>
+
 
 <style>
 @media (min-width: 1024px) {

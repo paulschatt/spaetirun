@@ -7,7 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 
     <div class="wrapper">
-      <h1>Spätirun</h1>
+      <h1>Spätirun Test 4</h1>
 
       <nav>
         <RouterLink to="/">Einem Spätirun beitreten</RouterLink>
