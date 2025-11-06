@@ -6,9 +6,12 @@ const spaetirunID = ref<string>("")
 
 <template>
   <div class="join">
-    <form>
-      <p>Hier kann man einem Spätirun beitreten</p>
-      <input v-model="spaetirunID" placeholder="Spätirun ID eingeben" />
+    <form class="join-form">
+    <v-text-field v-model="spaetirunID" label="Spätirun ID eingeben" variant="outlined"></v-text-field>
+    <v-btn>
+      Beitreten
+    </v-btn>
+    <p>Spätirun ID: {{ spaetirunID }}</p>
     </form>
   </div>
 </template>

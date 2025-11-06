@@ -34,3 +34,12 @@ a,
   }
 }
 
+v-text-field{
+  margin: 10px;
+  margin-left: 0px;
+}
+
+v-btn{
+  margin: 10px;
+  margin-left: 0px;
+}
